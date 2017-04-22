@@ -1,0 +1,28 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+}
+
+.toEat {
+
+	padding: 5px;
+}
+
+.addBurger {
+	
+	padding: 10px;
+}
+
+.alreadyEaten {
+	
+	padding: 10px;
+}
+
+.subtitle {
+	font-size: 40px;
+	
+}
+
+.burgTitle {
+	font-size: 50px;
+}

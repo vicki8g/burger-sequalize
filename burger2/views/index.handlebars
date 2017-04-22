@@ -1,0 +1,51 @@
+<div align="center">
+	<h4 class="burgTitle" align="center">Yummy Burgers!</h4>
+</div>
+
+<div class="row">
+
+	<div class="toEat col-md-4">
+		<ul class="notEaten" align="left">
+			<h4 class="subtitle">Burgers to Eat: </h4>
+			{{#each burger}}
+				<!-- if devoured = false... -->
+				{{#unless this.devoured}} 
+					<li>
+						{{this.burger_name}}
+						<form action = "/updateOne/{{this.id}}?_method=PUT" method="POST">
+							<input type='hidden' name="notDevoured" value='false'> 
+							<!-- what is this line? ^^ -->
+							<input name="customer" placeholder="John Customer">
+							<button type="submit">Devoure</button>
+						</form>
+					</li>
+					<br>
+				{{/unless}}
+			{{/each}}
+		</ul>
+	</div>
+
+	<div class="addBurger col-md-4" align="center">
+		<img src="/assets/img/burger.jpg" align="center">
+		<h3>Add a burger to eat</h3>
+		<form class="create-burger" action="/insertOne" method="POST">
+		  Burger name:<br>
+		  <input for="bur" class="newBurger" type="text" name="burger_name"><br>
+		  <input id="bur" type="submit" value="Submit">
+		</form>
+	</div>
+
+	<div class="alreadyEaten col-md-4">
+		<ul class="eaten" align="left">
+			<h4 class="subtitle">Devoured Burgers:</h4>
+			{{#each burger}}
+				<!-- //if devoured = true -->
+				{{#if this.devoured}} 
+					<li>
+						{{this.burger_name}} devoured by {{this.customer}}!
+					</li>
+				{{/if}}
+			{{/each}}
+		</ul>
+	</div>
+</div>
